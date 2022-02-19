@@ -1,0 +1,50 @@
+TYPES                                           ||    INTERFACES
+                                                ||
+1- You should use when building applications    || 1- You should use when building libraries
+
+TYPES: 
+
+2- Types and interfaces are almost same in latest versions of typescript                
+                                                
+3- We can give some default or fixed props in props types like 'loading' | 'error'         
+                                                
+4- We can use {{styles: React.CSSProperties;}} to give types of css properties and it will  
+   help us writing css in props and also throws error when we enter an invalid property 
+
+5- Generics are used when we have to pass different type of data structures in a props
+
+6- Restriction is used when we pass on props and restrict user to not pass another prop when a specific props
+   is passed for-example if we pass isPositive then we don't want to send isNegative
+
+7- We can use Template Literal Props by joining types and making combinations
+   It will also show suggestion when passing a props. Also it will throw error if we pass a random value
+
+8- We can also Exclude a value from template-literal-types like we did in "center-center"
+
+9- We can wrap HTML elements and spread props by using HTML Default types like type 
+   ButtonProps = {
+   variant: "primary" | "secondary";
+   } & React.ComponentProps<"button">;
+
+and 
+
+   type InputProps = React.ComponentProps<"input">;
+
+10- We can also omit a default type in step-9 by using Omit keyword and specify the property that 
+    we want to alter
+
+11- we can extract a components type for reusability by doing something like
+    lets say we build a new component and the props have exact same types as Greet Component
+    so what we will do is 
+
+    export const NewComponent = (props: React.ComponentProps<typeof Greet>) => {}
+
+    so our NewComponent will use propTypes of Greet component
+   
+12- We will learn Polymorphic components but It will be required only if we are creating a 
+    components library or a design system
+
+    The components that will render based on "as" props like 
+    as="h1"
+    as="label" etc 
+    are called polymorphic components
